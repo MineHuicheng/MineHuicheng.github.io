@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+
+			.box{
+				background: beige;
+				border: 3px solid darkseagreen;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 300px;
+				left: 300px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var box=document.querySelector('.box');
+				box.onmousemove=function(ev){
+					
+					if((getPos(box).right-ev.clientX<=3)&&(getPos(box).right-ev.clientX>=0)){
+							
+							box.style.cursor='ew-resize';
+							
+						if((getPos(box).bottom-ev.clientY<=3)&&(getPos(box).bottom-ev.clientY>=0)){
+							box.style.cursor='se-resize';
+						}
+						if((ev.clientY-getPos(box).top<=3)&&(ev.clientY-getPos(box).top>=0)){
+							box.style.cursor='ne-resize';
+						}
+						
+					}
+						
+					
+					else if((ev.clientX-getPos(box).left<=3)&&(ev.clientX-getPos(box).left>=0)){
+							
+							box.style.cursor='ew-resize';
+						if((getPos(box).bottom-ev.clientY<=3)&&(getPos(box).bottom-ev.clientY>=0)){
+							box.style.cursor='sw-resize';
+						}
+						if((ev.clientY-getPos(box).top<=3)&&(ev.clientY-getPos(box).top>=0)){
+							box.style.cursor='nw-resize';
+						}
+					}
+					else if(((getPos(box).bottom-ev.clientY<=3)&&(getPos(box).bottom-ev.clientY>=0))||((ev.clientY-getPos(box).top<=3)&&(ev.clientY-getPos(box).top>=0))){
+						box.style.cursor='ns-resize';
+					}
+							
+					else {			
+						box.style.cursor='default';
+					
+					}
+					
+					box.onmousedown=function(ev){
+						var boxX=ev.clientX;
+						var boxY=ev.clientY;
+						var boxWidth=box.clientWidth;
+						var boxHeight=box.clientHeight;
+						var boxLeft=getPos(box).left;
+						var boxRight=getPos(box).right;
+						var boxBottom=getPos(box).bottom;
+						var boxTop=getPos(box).top;
+						if(box.style.cursor=='ew-resize'){
+							document.onmousemove=function(ev){
+								
+								if (ev.clientX>=boxRight) {
+									var newWidth=ev.clientX-boxX+boxWidth;
+									if(newWidth<100){
+										newWidth=100;
+									}
+									box.style.width=newWidth+'px';																			
+								} 
+								else if(ev.clientX<=boxLeft){
+									var newWidth=boxX-ev.clientX+boxWidth;
+									if(newWidth<100){
+										newWidth=100;
+									}										
+									box.style.width=newWidth+'px';
+									box.style.left=boxLeft-Math.abs(ev.clientX-boxX)+'px';
+								}
+							
+						
+								
+							};
+						}	
+								
+							else if (box.style.cursor=='ns-resize'){
+								document.onmousemove=function(ev){
+									
+									if (ev.clientY>=boxBottom) {
+										var newHeight=ev.clientY-boxY+boxHeight;
+										if(newHeight<100){
+											newHeight=100;
+										}
+										
+										box.style.height=newHeight+'px';
+									} 
+									else if(ev.clientY<=boxTop){
+										var newHeight=boxY-ev.clientY+boxHeight;
+										if(newHeight<100){
+											newHeight=100;
+										}
+										box.style.height=newHeight+'px';
+										box.style.top=boxTop-Math.abs(ev.clientY-boxY)+'px';
+									}
+								
+							
+									
+								};
+							}
+							else if (box.style.cursor=='se-resize'){
+								document.onmousemove=function(ev){
+									
+									if (ev.clientY>=boxBottom&&ev.clientX>=boxRight) {
+										var newHeight=ev.clientY-boxY+boxHeight;
+										var newWidth=ev.clientX-boxX+boxWidth;
+										if(newHeight<100&&newWidth<100){
+											newHeight=100;
+											newWidth=100;
+										}
+										box.style.width=newWidth+'px';	
+										box.style.height=newHeight+'px';
+									} 
+									
+								};
+							}
+							else 	document.onmousemove=null;
+							
+						}
+					
+						
+					}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+				};
+				function getPos(obj){
+					return obj.getBoundingClientRect();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>
