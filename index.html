@@ -1,41 +1,307 @@
-个人基本情况：                                                               
-姓    名：郑国雷	专    业：电子与通信工程
-性    别：  男	英语水平：CET-4
-政治面貌：中共党员	电子邮件：zhengguolei_mine @163.com
-出生日期：1991年12月 	联系电话：13194241029
-籍    贯：浙江省温州市	
-毕业时间：2018年4月	
-求职意向：                                                                    
-   前端开发工程师
-专业知识能力：                                                               
-	熟练CSS、HTML、JavaScript语言的使用；
-	熟练CSS/HTML框架Bootstrap和jQuery和React等JavaScript框架；
-	熟练Ajax和jsonp等数据访问技术；
-	了解Node.js和Java等后台语言进行后端开发；
-	熟练使用Hbuilder工具进行前端设计开发；
-	了解MySQL等关系型数据库的开发设计；
-	熟悉Java面向对象开发语言，并能够利用J2EE规范下的编程；
-个人项目：                                                                        
-○1 项目名称：沈阳理工大学研究生公寓管理系统
-项目描述：该系统用于研究生学院公寓管理，根据不同角色分配不同的功能。系统管理者身份可以设置用户权限以及相应的功能。公寓管理员身份登录可以查看学生住宿情况以及统计信息。学生身份可以查看最新通知以及住宿信息的填写和修改。
-项目职责：完成管理系统的页面视觉搭建并基于JQuery框架和Ajax技术进行管理系统的前端交互实现
-○2 项目名称：物联网节点动态感知与自组织管理
-项目描述：基于SDN框架，实现对异构传感节点动态感知的控制与数据传输的解耦，并通过动态路由进行自组织管理，最后通过网络接口编程以WEB方式呈现试图界面。硬件部分由STM32ARM板和WiFi模块搭建而成，并通过总控中心模块进行对感知层节点的调度，再由无线通信与编写再PC机的后台服务器程序进行信息交互，最终以WEB方式呈现。
-项目职责：完成系统的后台服务器程序的搭建与调试，并基于JQuery框架编写前端视图的搭建，并利用Ajax技术进行与后台服务器系统的交互从而实现节点实时信息的显示与控制交互。
-教育背景：                                                                    
-2015年9月--至今	沈阳理工大学	电子与通信工程	硕士
-2010年9月--2014年6月	湖州师范学院	电子科学与技术	本科
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
-			
-证书情况：                                                                    
-全国计算机二级（Java）
-全国计算机三级（网络技术）
-获奖情况：                                                                    
-2011年 校科技奖学金；
-2012年 校三等奖学金；校级优秀团干部
-2016年 校专业奖学金二等奖 ；“华为杯”第十一届中国研究生电子设计竞赛二等奖；
-2017年 校专业奖学金二等奖；“华为杯”第十二届中国研究生电子设计竞赛三等奖；第十三届“挑战杯”辽宁省大学生课外学术科技作品竞赛三等奖；	
-个人评价：                                                                    
- 	热衷IT产业，对于前端开发有着浓厚的兴趣。在技术学习的过程里做了有关前端技术的小作品——1：基于bootstrap框架搭建实现了一个响应式、支持多种移动设备的仿现代浏览器博物馆主页设计网页；2：利用CSS和HTML搭建游戏主体，并基于jQuery，加入了移动端的滑动操作的网页版2048小游戏。
- 	为人正直、诚恳，热情，有上进心。工作上勤奋认真，踏实肯干，具有很强的团队合作能力及较好的沟通能力，责任心强。具有很强的分析问题、解决问题的能力以及较强的自学能力。
+	<style type="text/css">
+		body{
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		.carousel{
+			height: 500px;
+			background-color: #000000;
+			margin-bottom: 60px;
+		}
+		.carousel .item{
+			height: 500px;
+			background-color: #000000;
+		}
+		.carousel img{
+			width: 100%;
+		}
+		.carousel-caption p{
+			margin-bottom: 20px;
+			font-size: 20px;
+			line-height: 1.8em;
+		}
+		#summary .col-md-4{
+			text-align: center;
+		}
+		.divider{
+			margin:40px;
+		}
+		.feature{
+			padding: 30px 0;
+		}
+		.feature-heading{
+			font-size: 50px;
+			color: #2a6496;
+			margin-top: 120px;
+		}
+		.feature-heading .text-muted{
+			font-size: 28px;
+			color: #999999;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#demo-navbar .dropdown-menu a").click(function(){
+				var href=$(this).attr('href');
+				$("#tab-list a[href='"+href+"']").tab('show')
+			});
+		});
+	</script>
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role='navigation'>
+		  <div class="container">
+		    <div class="navbar-header">
+		    	<button type="button" class="navbar-toggle collapsed" data-toggle='collapse' data-target='#demo-navbar'>
+		    		<span class="sr-only"></span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    	</button>
+		    	<a class="navbar-brand" href="#">现代浏览器博物馆</a>
+		    </div>
+		    
+		    <div class="collapse navbar-collapse" id="demo-navbar">
+		    	<ul class="nav navbar-nav">
+		    		<li class="active" ><a href="#">综述</a></li>
+		    		<li><a href="#">简述</a></li>
+		    		<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >特点<span class="caret"></span></a>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#home">Chrome</a></li>
+					    <li><a href="#profile">Firefo</a></li>
+					    <li><a href="#messages">Safa</a></li>
+					    <li><a href="#settings">IE</a></li>
+					  </ul>
+					</li>
+		    		<li><a href="#" data-toggle='modal' data-target='#about'>关于</a></li>
+		    	</ul>
+		    </div>
+		  </div>
+		</nav>
+		
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		  	<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+		  </ol>
+		
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <img src="img/chrome-big.jpg" alt="...">
+		      <div class="carousel-caption">
+		        <h1>Chrome</h1>
 
+                <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+
+                <p><a class="btn btn-lg btn-primary" href="http://www.google.cn/intl/zh-CN/chrome/browser/"
+                          role="button" target="_blank">点我下载</a></p>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src='img/firefox-big.jpg' alt="...">
+		      <div class="carousel-caption">
+		        <h1>Firefox</h1>
+
+                <p>Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器。</p>
+
+                <p><a class="btn btn-lg btn-primary" href="http://www.firefox.com.cn/download/" target="_blank"
+                      role="button">点我下载</a></p>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="img/safari-big.jpg" alt="...">
+		      <div class="carousel-caption">
+		         <h1>Safari</h1>
+
+                <p>Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器。</p>
+
+                <p><a class="btn btn-lg btn-primary" href="http://www.apple.com/cn/safari/" target="_blank"
+                      role="button">点我下载</a></p>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src='img/opera-big.jpg' alt="...">
+		      <div class="carousel-caption">
+		         <h1>Opera</h1>
+
+                <p>Opera浏览器，是一款挪威Opera Software ASA公司制作的支持多页面标签式浏览的网络浏览器。</p>
+
+                <p><a class="btn btn-lg btn-primary" href="http://www.opera.com/zh-cn" target="_blank"
+                      role="button">点我下载</a></p>
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src='img/ie-big.jpg' alt="...">
+		      <div class="carousel-caption">
+		        <h1>IE</h1>
+
+                <p>Internet Explorer，简称 IE，是微软公司推出的一款网页浏览器。</p>
+
+                <p><a class="btn btn-lg btn-primary" href="http://ie.microsoft.com/" target="_blank"
+                      role="button">点我下载</a></p>
+		      </div>
+		    </div>
+		  </div>
+		
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" ></span>
+		    <span class="sr-only">上一页</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" ></span>
+		    <span class="sr-only">下一页</span>
+		  </a>
+		</div>
+		<div class="container" id="summary">
+		  <div class="row">
+			 <div class="col-md-4">
+			 	<img class="img-circle" src='img/chrome-logo-small.jpg' alt="chrome">
+
+		        <h2>Chrome</h2>
+		
+		        <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+		
+		        <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+			 </div>
+			 <div class="col-md-4">
+			 	 <img class="img-circle" src='img/firefox-logo-small.jpg'" alt="firefox">
+
+		       	 <h2>Firefox</h2>
+		
+		      	 <p>Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器。</p>
+		
+		         <p><a class="btn btn-default" href="#" role="button">点我下载</a></p>
+			 </div>
+			 <div class="col-md-4">
+			  	<img class="img-circle" src='img/safari-logo-small.jpg'" alt="safari">
+
+           		<h2>Safari</h2>
+
+           	 	<p>Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器。</p>
+	
+           		<p><a class="btn btn-default" href="#" role="button">点我下载</a></p>	
+			 </div>
+		  </div>
+		<hr class="divider"/>
+		<div>
+
+		  <ul class="nav nav-tabs" role="tablist" id='tab-list'>
+		    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Chrome</a></li>
+		    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Firefox</a></li>
+		    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Opera</a></li>
+		    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">IE</a></li>
+		  </ul>
+		
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="home">
+		    	<div class="row feature">
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">Google Chrome <span
+                            class="text-muted">使用最广的浏览器</span></h2>
+
+                    <p class="lead">Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。
+                        该浏览器是基于其他开源软件所撰写，包括WebKit，目标是提升稳定性、速度和安全性，并创造出简单且有效率的使用者界面。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src='img/chrome-logo.jpg'
+                         alt="Chrome">
+                </div>
+            </div>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="profile">
+		    	 <div class="row feature">
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src='img/firefox-logo.jpg'
+                         alt="Firefox">
+                </div>
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">Mozilla Firefox <span class="text-muted">美丽的狐狸</span>
+                    </h2>
+
+                    <p class="lead">Mozilla Firefox，中文名通常称为“火狐”或“火狐浏览器”，是一个开源网页浏览器，
+                        使用Gecko引擎（非ie内核），支持多种操作系统如Windows、Mac和linux。</p>
+                </div>
+            </div>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="messages">
+		    	 <div class="row feature">
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">Safari <span class="text-muted">Mac用户首选</span></h2>
+
+                    <p class="lead">Safari，是苹果计算机的最新操作系统Mac OS X中的浏览器，使用了KDE的KHTML作为浏览器的运算核心。
+                        Safari在2003年1月7日首度发行测试版，并成为Mac OS X v10.3与之后的默认浏览器，也是iPhone与IPAD和iPod touch的指定浏览器。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src='img/safari-logo.jpg'
+                         alt="Safari">
+                </div>
+            </div>
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="settings">
+		    	 <div class="row feature">
+                <div class="col-md-7">
+
+                    <h2 class="feature-heading">IE <span class="text-muted">你懂的</span></h2>
+
+                    <p class="lead">Internet Explorer，原称Microsoft Internet Explorer(6版本以前)和Windows Internet
+                        Explorer(7，8，9，10版本)，
+                        简称IE，是美国微软公司推出的一款网页浏览器。它采用的排版引擎(俗称内核)为Trident。</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="feature-image img-responsive" src='img/ie-logo.jpg'
+                         alt="IE">
+                </div>
+            </div>
+		    </div>
+		  </div>
+		
+		</div>
+		<hr class='divider'/>
+		<footer>
+			<p class="pull-right"><a href="#top">回到顶部</a></p>
+			<p>Mine2017</p>
+		</footer>
+		</div>
+		
+	<div class="modal fade" id='about' tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">关于</h4>
+      </div>
+      <div class="modal-body">
+        <p>.........</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	</body>
+</html>
